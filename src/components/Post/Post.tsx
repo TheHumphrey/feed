@@ -55,9 +55,11 @@ export const Post = ({ content, title }: TProps) => {
           <ContentTextLink href="#">
             #novoprojeto
           </ContentTextLink> {" "}
+
           <ContentTextLink href="#">
             #nlw
           </ContentTextLink> {" "}
+
           <ContentTextLink href="#">
             #rocketseat
           </ContentTextLink>

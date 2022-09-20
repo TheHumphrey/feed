@@ -8,17 +8,26 @@ import {
   Link
 } from "./style"
 
-export const Sidebar = () => {
+type TProps = {
+  data: {
+    userAvatarUrl: string;
+    userName: string;
+    userRole: string;
+  }
+}
+
+export const Sidebar = ({ data }: TProps) => {
+  const { userAvatarUrl, userName, userRole } = data
   return (
     <Aside>
-      <Image src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=50" />
+      <Image src={userAvatarUrl} />
       <Profile>
         <Name>
-          Fernando Barros
+          {userName}
         </Name>
 
         <Role>
-          Web Developer
+          {userRole}
         </Role>
       </Profile>
 
