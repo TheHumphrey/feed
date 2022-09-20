@@ -6,7 +6,10 @@ import {
   ProfileAuthorInfoContainer,
   AuthorName,
   AuthorRole,
-  PublishedTime
+  PublishedTime,
+  ContentText,
+  PostContent,
+  ContentTextLink
 } from './style'
 
 type TProps = {
@@ -34,6 +37,20 @@ export const Post = ({ content, title }: TProps) => {
           Publicado há 1h
         </PublishedTime>
       </PostHeader>
+
+      <PostContent>
+        <ContentText>Fala galeraa 👋</ContentText>
+
+        <ContentText>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</ContentText>
+
+        <ContentText>👉
+          <ContentTextLink href="#">jane.design/doctorcare</ContentTextLink>
+        </ContentText>
+
+        <ContentText>
+          <ContentTextLink href="#">#novoprojeto #nlw #rocketseat</ContentTextLink>
+        </ContentText>
+      </PostContent>
 
     </PostContainer>
   )

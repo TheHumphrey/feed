@@ -15,3 +15,9 @@ export const AuthorName = styled.strong``
 export const AuthorRole = styled.span``
 
 export const PublishedTime = styled.time``
+
+export const PostContent = styled.div``
+
+export const ContentText = styled.p``
+
+export const ContentTextLink = styled.a``
