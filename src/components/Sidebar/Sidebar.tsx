@@ -1,3 +1,5 @@
+import { PencilLine } from 'phosphor-react'
+
 import {
   Aside,
   Image,
@@ -5,7 +7,8 @@ import {
   Name,
   Role,
   Footer,
-  Link
+  Link,
+  ProfileAvatar
 } from "./style"
 
 type TProps = {
@@ -22,6 +25,8 @@ export const Sidebar = ({ data }: TProps) => {
     <Aside>
       <Image src={userAvatarUrl} />
       <Profile>
+        <ProfileAvatar src="https://github.com/TheHumphrey.png" />
+
         <Name>
           {userName}
         </Name>
@@ -32,7 +37,10 @@ export const Sidebar = ({ data }: TProps) => {
       </Profile>
 
       <Footer>
-        <Link href="#">Editar seu perfil</Link>
+        <Link href="#">
+          <PencilLine size={20} />
+          Editar seu perfil
+        </Link>
       </Footer>
 
     </Aside>
