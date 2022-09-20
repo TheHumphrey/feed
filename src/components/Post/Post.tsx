@@ -23,12 +23,12 @@ export const Post = ({ content, title }: TProps) => {
       <PostHeader>
         <ProfileAuthorContainer>
           <AuthorAvatar src="https://github.com/TheHumphrey.png" />
-        </ProfileAuthorContainer>
 
-        <ProfileAuthorInfoContainer>
-          <AuthorName>Fernando Barros</AuthorName>
-          <AuthorRole>Web Developer</AuthorRole>
-        </ProfileAuthorInfoContainer>
+          <ProfileAuthorInfoContainer>
+            <AuthorName>Fernando Barros</AuthorName>
+            <AuthorRole>Web Developer</AuthorRole>
+          </ProfileAuthorInfoContainer>
+        </ProfileAuthorContainer>
 
         <PublishedTime
           title="11 de julho as 09:15"
@@ -43,12 +43,24 @@ export const Post = ({ content, title }: TProps) => {
 
         <ContentText>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</ContentText>
 
-        <ContentText>👉
-          <ContentTextLink href="#">jane.design/doctorcare</ContentTextLink>
+        <ContentText>
+          👉
+          {" "}
+          <ContentTextLink href="#">
+            jane.design/doctorcare
+          </ContentTextLink>
         </ContentText>
 
         <ContentText>
-          <ContentTextLink href="#">#novoprojeto #nlw #rocketseat</ContentTextLink>
+          <ContentTextLink href="#">
+            #novoprojeto
+          </ContentTextLink> {" "}
+          <ContentTextLink href="#">
+            #nlw
+          </ContentTextLink> {" "}
+          <ContentTextLink href="#">
+            #rocketseat
+          </ContentTextLink>
         </ContentText>
       </PostContent>
 
