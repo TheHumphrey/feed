@@ -70,3 +70,54 @@ export const ContentTextLink = styled.a`
     color: ${({ theme }) => theme.colors.green_300};
   }
 `
+
+export const CommentForm = styled.form`
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid ${({ theme }) => theme.colors.gray_600};
+
+  :focus-within footer{
+    visibility: visible;
+    max-height: none;
+  }
+`
+
+export const CommentStrong = styled.strong`
+  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.gray_100};
+`
+
+export const CommentTextArea = styled.textarea`
+  width: 100%;
+  background: ${({ theme }) => theme.colors.gray_700};
+  border: 0;
+  resize: none;
+  height: 6rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: ${({ theme }) => theme.colors.gray_100};
+  line-height: 1.4;
+  margin-top: 1rem;
+`
+
+export const Footer = styled.footer`
+  visibility: hidden;
+  max-height: 0;
+`
+
+export const CommentButton = styled.button`
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 0;
+  background: ${({ theme }) => theme.colors.green_500};
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: bold;
+  cursor: pointer;
+
+  :hover {
+    background: ${({ theme }) => theme.colors.green_300};
+    transition: background-color 0.1s;
+  }
+`

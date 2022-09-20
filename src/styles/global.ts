@@ -7,6 +7,11 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.green_500};
+  }
+
   body {
     background: ${({ theme }) => theme.colors.gray_900};
     color: ${({ theme }) => theme.colors.gray_300};

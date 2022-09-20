@@ -9,7 +9,12 @@ import {
   PublishedTime,
   ContentText,
   PostContent,
-  ContentTextLink
+  ContentTextLink,
+  CommentForm,
+  CommentStrong,
+  CommentTextArea,
+  CommentButton,
+  Footer
 } from './style'
 
 type TProps = {
@@ -65,6 +70,21 @@ export const Post = ({ content, title }: TProps) => {
           </ContentTextLink>
         </ContentText>
       </PostContent>
+
+      <CommentForm>
+        <CommentStrong>Deixe seu feedback</CommentStrong>
+
+        <CommentTextArea
+          placeholder='Deixe um comentário'
+        />
+
+        <Footer>
+          <CommentButton type="submit" >
+            Publicar
+          </CommentButton>
+        </Footer>
+
+      </CommentForm>
 
     </PostContainer>
   )
