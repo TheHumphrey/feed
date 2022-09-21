@@ -14,8 +14,13 @@ import {
   CommentStrong,
   CommentTextArea,
   CommentButton,
-  Footer
+  Footer,
+  CommentListContainer
 } from './style'
+
+import {
+  Comment
+} from '../'
 
 type TProps = {
   title: string;
@@ -85,6 +90,12 @@ export const Post = ({ content, title }: TProps) => {
         </Footer>
 
       </CommentForm>
+
+      <CommentListContainer>
+        <Comment />
+        <Comment />
+        <Comment />
+      </CommentListContainer>
 
     </PostContainer>
   )

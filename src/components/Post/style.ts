@@ -121,3 +121,7 @@ export const CommentButton = styled.button`
     transition: background-color 0.1s;
   }
 `
+
+export const CommentListContainer = styled.div`
+  margin-top: 2rem;
+`
