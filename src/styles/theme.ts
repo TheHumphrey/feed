@@ -14,6 +14,8 @@ export const theme = {
 
     green_300: '#00B37E',
     green_500: '#00875F',
+
+    red_500: '#F75A68',
   }
 }
 
