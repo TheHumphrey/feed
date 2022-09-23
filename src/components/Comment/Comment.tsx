@@ -1,8 +1,8 @@
 import { ThumbsUp, Trash } from "phosphor-react"
+import { Avatar } from "../Avatar/Avatar"
 import {
   CommentAuthor,
   CommentAuthorAndTimeContainer,
-  CommentAvatar,
   CommentBox,
   CommentButton,
   CommentContainer,
@@ -17,7 +17,7 @@ import {
 export const Comment = () => {
   return (
     <CommentContainer>
-      <CommentAvatar src="https://github.com/TheHumphrey.png" />
+      <Avatar src="https://github.com/TheHumphrey.png" withOutBorder />
 
       <CommentBox>
         <CommentContent>

@@ -2,7 +2,6 @@ import {
   PostContainer,
   PostHeader,
   ProfileAuthorContainer,
-  AuthorAvatar,
   ProfileAuthorInfoContainer,
   AuthorName,
   AuthorRole,
@@ -19,6 +18,7 @@ import {
 } from './style'
 
 import {
+  Avatar,
   Comment
 } from '../'
 
@@ -32,7 +32,7 @@ export const Post = ({ content, title }: TProps) => {
     <PostContainer>
       <PostHeader>
         <ProfileAuthorContainer>
-          <AuthorAvatar src="https://github.com/TheHumphrey.png" />
+          <Avatar src="https://github.com/TheHumphrey.png" />
 
           <ProfileAuthorInfoContainer>
             <AuthorName>Fernando Barros</AuthorName>

@@ -22,14 +22,6 @@ export const ProfileAuthorContainer = styled.div`
   gap: 1rem;
 `
 
-export const AuthorAvatar = styled.img`
-  width: calc(3rem + 12px);
-  height: calc(3rem + 12px);
-  border-radius: 8px;
-  border: 4px solid ${({ theme }) => theme.colors.gray_800};
-  outline: 2px solid ${({ theme }) => theme.colors.green_500};
-`
-
 export const ProfileAuthorInfoContainer = styled.div`
   display: flex;
   flex-direction: column;

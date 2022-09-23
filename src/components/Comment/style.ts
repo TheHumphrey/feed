@@ -6,12 +6,6 @@ export const CommentContainer = styled.div`
   gap: 1rem;
 `
 
-export const CommentAvatar = styled.img`
-  width: 3rem;
-  height: 3rem;
-  border-radius: 8px;
-`
-
 export const CommentBox = styled.div`
   flex: 1;
 `

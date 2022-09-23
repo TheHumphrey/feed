@@ -1,0 +1,16 @@
+import {
+  ProfilePic,
+  ProfilePicWithOutBorder
+} from './style'
+
+type TProps = {
+  src: string;
+  alt?: string;
+  withOutBorder?: boolean;
+}
+
+export const Avatar = ({ src, alt, withOutBorder, ...rest }: TProps) => {
+  return withOutBorder ?
+    (<ProfilePicWithOutBorder src={src} alt={alt} {...rest} />) :
+    (<ProfilePic src={src} alt={alt} {...rest} />)
+}

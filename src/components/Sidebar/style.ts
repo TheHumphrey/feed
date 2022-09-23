@@ -20,15 +20,6 @@ export const Profile = styled.div`
   margin-top: calc(0px - 1.5rem - 6px);
 `
 
-export const ProfileAvatar = styled.img`
-  width: calc(3rem + 12px);
-  height: calc(3rem + 12px);
-  border-radius: 8px;
-  border: 4px solid ${({ theme }) => theme.colors.gray_800};
-  outline: 2px solid ${({ theme }) => theme.colors.green_500};
-  background: ${({ theme }) => theme.colors.gray_800};
-`
-
 export const Name = styled.strong`
   margin-top: 1rem;
   color: ${({ theme }) => theme.colors.gray_100};
