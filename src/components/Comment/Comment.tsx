@@ -14,7 +14,11 @@ import {
   PublishedTime
 } from "./style"
 
-export const Comment = () => {
+type TProps = {
+  content: string;
+}
+
+export const Comment = ({ content }: TProps) => {
   return (
     <CommentContainer>
       <Avatar src="https://github.com/TheHumphrey.png" withOutBorder />
@@ -37,7 +41,7 @@ export const Comment = () => {
             </CommentButton>
           </CommentHeader>
 
-          <CommentText>Muito bom Devon, parabéns!! 👏👏</CommentText>
+          <CommentText>{content}</CommentText>
 
         </CommentContent>
 
