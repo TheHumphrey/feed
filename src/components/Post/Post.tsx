@@ -1,3 +1,6 @@
+import { format, formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+
 import {
   PostContainer,
   PostHeader,
@@ -21,59 +24,57 @@ import {
   Avatar,
   Comment
 } from '../'
+import { TPost } from '../../App'
 
 type TProps = {
-  title: string;
-  content: string;
+  data: TPost
 }
 
-export const Post = ({ content, title }: TProps) => {
+export const Post = ({ data }: TProps) => {
+  const {
+    author,
+    content,
+    publishedAt
+  } = data
+
+  const {
+    avatarUrl,
+    name,
+    role
+  } = author
+
+  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", { locale: ptBR })
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, { locale: ptBR, addSuffix: true })
+
   return (
     <PostContainer>
       <PostHeader>
         <ProfileAuthorContainer>
-          <Avatar src="https://github.com/TheHumphrey.png" />
+          <Avatar src={avatarUrl} />
 
           <ProfileAuthorInfoContainer>
-            <AuthorName>Fernando Barros</AuthorName>
-            <AuthorRole>Web Developer</AuthorRole>
+            <AuthorName>{name}</AuthorName>
+            <AuthorRole>{role}</AuthorRole>
           </ProfileAuthorInfoContainer>
         </ProfileAuthorContainer>
 
         <PublishedTime
-          title="11 de julho as 09:15"
-          dateTime="2022-07-11 09:15:30"
+          title={publishedDateFormatted}
+          dateTime={publishedAt.toISOString()}
         >
-          Publicado há 1h
+          {publishedDateRelativeToNow}
         </PublishedTime>
       </PostHeader>
 
       <PostContent>
-        <ContentText>Fala galeraa 👋</ContentText>
-
-        <ContentText>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</ContentText>
-
-        <ContentText>
-          👉
-          {" "}
-          <ContentTextLink href="#">
-            jane.design/doctorcare
-          </ContentTextLink>
-        </ContentText>
-
-        <ContentText>
-          <ContentTextLink href="#">
-            #novoprojeto
-          </ContentTextLink> {" "}
-
-          <ContentTextLink href="#">
-            #nlw
-          </ContentTextLink> {" "}
-
-          <ContentTextLink href="#">
-            #rocketseat
-          </ContentTextLink>
-        </ContentText>
+        {content.map(line => {
+          if (line.type === 'paragraph') {
+            return <ContentText>{line.content}</ContentText>
+          } else if (line.type === 'link') {
+            return <ContentTextLink href="#">{line.content}</ContentTextLink>
+          }
+        })}
       </PostContent>
 
       <CommentForm>

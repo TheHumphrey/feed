@@ -1,4 +1,5 @@
 import { Post, Sidebar } from "../"
+import { TPost } from "../../App"
 import { WrapperDiv } from "./style"
 
 const data =
@@ -8,13 +9,18 @@ const data =
   userRole: 'Web Developer'
 }
 
-export const Wrapper = () => {
+type TProps = {
+  posts: TPost[]
+}
+
+export const Wrapper = ({ posts }: TProps) => {
   return (
     <WrapperDiv >
       <Sidebar data={data} />
       <main>
-        <Post title="text" content="teste" />
-        <Post title="text" content="teste" />
+        {
+          posts.map(post => (<Post data={post} key={post.id} />))
+        }
       </main>
     </WrapperDiv>
   )
