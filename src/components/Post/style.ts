@@ -108,9 +108,14 @@ export const CommentButton = styled.button`
   font-weight: bold;
   cursor: pointer;
 
-  :hover {
+  :not(:disabled):hover {
     background: ${({ theme }) => theme.colors.green_300};
     transition: background-color 0.1s;
+  }
+
+  :disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 `
 

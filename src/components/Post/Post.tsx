@@ -62,16 +62,9 @@ export const Post = ({ data }: TProps) => {
   }
 
   const handleNewCommentChange = () => {
-    // @ts-ignore
-    event?.target?.setCustomValidity('')
 
     // @ts-ignore
     setNewCommentText(event?.target.value)
-  }
-
-  const handleNewCommentInvalid = () => {
-    // @ts-ignore
-    event?.target?.setCustomValidity('Esse campo é obrigatorio!')
   }
 
   const deleteComment = (commentToDelete: string) => {
@@ -81,6 +74,8 @@ export const Post = ({ data }: TProps) => {
 
     setComments(commentsWithoutDeletedOne)
   }
+
+  const isNewCommentEmpty = newCommentText.length === 0
 
   return (
     <PostContainer>
@@ -120,12 +115,14 @@ export const Post = ({ data }: TProps) => {
           placeholder='Deixe um comentário'
           value={newCommentText}
           onChange={handleNewCommentChange}
-          onInvalid={handleNewCommentInvalid}
           required
         />
 
         <Footer>
-          <CommentButton type="submit" >
+          <CommentButton
+            type="submit"
+            disabled={isNewCommentEmpty}
+          >
             Publicar
           </CommentButton>
         </Footer>
