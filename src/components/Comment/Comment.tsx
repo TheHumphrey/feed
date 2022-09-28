@@ -16,9 +16,15 @@ import {
 
 type TProps = {
   content: string;
+  onDeleteComment(comment: string): void;
 }
 
-export const Comment = ({ content }: TProps) => {
+export const Comment = ({ content, onDeleteComment }: TProps) => {
+
+  const handleRemoveComment = () => {
+    onDeleteComment(content)
+  }
+
   return (
     <CommentContainer>
       <Avatar src="https://github.com/TheHumphrey.png" withOutBorder />
@@ -36,7 +42,7 @@ export const Comment = ({ content }: TProps) => {
               </PublishedTime>
             </CommentAuthorAndTimeContainer>
 
-            <CommentButton title="Deletar comentário">
+            <CommentButton title="Deletar comentário" onClick={handleRemoveComment}>
               <Trash size={24} />
             </CommentButton>
           </CommentHeader>

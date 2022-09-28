@@ -32,7 +32,9 @@ type TProps = {
 }
 
 export const Post = ({ data }: TProps) => {
-  const [comments, setComments] = useState(['Post muito bacana'])
+  const [comments, setComments] = useState([
+    'Post muito bacana'
+  ])
   const [newCommentText, setNewCommentText] = useState('')
 
   const {
@@ -59,6 +61,27 @@ export const Post = ({ data }: TProps) => {
     setNewCommentText('')
   }
 
+  const handleNewCommentChange = () => {
+    // @ts-ignore
+    event?.target?.setCustomValidity('')
+
+    // @ts-ignore
+    setNewCommentText(event?.target.value)
+  }
+
+  const handleNewCommentInvalid = () => {
+    // @ts-ignore
+    event?.target?.setCustomValidity('Esse campo é obrigatorio!')
+  }
+
+  const deleteComment = (commentToDelete: string) => {
+    const commentsWithoutDeletedOne = comments.filter(comment => {
+      return comment !== commentToDelete
+    })
+
+    setComments(commentsWithoutDeletedOne)
+  }
+
   return (
     <PostContainer>
       <PostHeader>
@@ -80,11 +103,11 @@ export const Post = ({ data }: TProps) => {
       </PostHeader>
 
       <PostContent>
-        {content.map(line => {
+        {content.map((line) => {
           if (line.type === 'paragraph') {
-            return <ContentText>{line.content}</ContentText>
+            return <ContentText key={line.content}>{line.content}</ContentText>
           } else if (line.type === 'link') {
-            return <ContentTextLink href="#">{line.content}</ContentTextLink>
+            return <ContentTextLink href="#" key={line.content}>{line.content}</ContentTextLink>
           }
         })}
       </PostContent>
@@ -96,7 +119,9 @@ export const Post = ({ data }: TProps) => {
           name="comment"
           placeholder='Deixe um comentário'
           value={newCommentText}
-          onChange={(e) => setNewCommentText(e.target.value)}
+          onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
 
         <Footer>
@@ -109,7 +134,15 @@ export const Post = ({ data }: TProps) => {
 
       <CommentListContainer>
         {
-          comments.map(comment => (<Comment content={comment} />))
+          comments.map(comment =>
+          (
+            <Comment
+              content={comment}
+              key={comment}
+              onDeleteComment={deleteComment}
+            />
+          )
+          )
         }
       </CommentListContainer>
 
