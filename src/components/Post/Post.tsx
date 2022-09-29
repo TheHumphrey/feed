@@ -25,7 +25,7 @@ import {
   Comment
 } from '../'
 import { TPost } from '../../App'
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 type TProps = {
   data: TPost
@@ -61,9 +61,8 @@ export const Post = ({ data }: TProps) => {
     setNewCommentText('')
   }
 
-  const handleNewCommentChange = () => {
+  const handleNewCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
 
-    // @ts-ignore
     setNewCommentText(event?.target.value)
   }
 
