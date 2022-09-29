@@ -1,11 +1,10 @@
+import { ImgHTMLAttributes } from 'react'
 import {
   ProfilePic,
   ProfilePicWithOutBorder
 } from './style'
 
-type TProps = {
-  src: string;
-  alt?: string;
+type TProps = ImgHTMLAttributes<HTMLImageElement> & {
   withOutBorder?: boolean;
 }
 
